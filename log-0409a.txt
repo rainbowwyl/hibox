@@ -1,0 +1,633 @@
+EEEE I3000000032940xf100100303;77510EEEE I400000004294_M6_BL1_3003>2137333?
+                                                                            wait pll-0x03 target is 0204 now it is 0x00000203
+
+DDR clock is 516MHz with 1T mode
+
+DX0DLLCR:40000000
+DX0DQTR:ffffffff
+DX0DQSTR:3db05001
+DX1DLLCR:40000000
+DX1DQTR:ffffffff
+DX1DQSTR:3db05001
+DX2DLLCR:40000000
+DX2DQTR:ffffffff
+DX2DQSTR:3db05001
+DX3DLLCR:40000000
+DX3DQTR:ffffffff
+DX3DQSTR:3db05001
+Stage 00 Result 00000000
+Stage 01 Result 00000000
+Stage 02 Result 00000000
+Stage 03 Result 00000000
+HHH
+0x000000c7
+0x12345678
+Boot from external device 
+System Started
+
+
+
+U-boot(m6_mbx_v1@4dafb4dc) (Apr 09 2013 - 22:17:43)
+
+aml_rtc_init
+aml rtc init first time!
+Clear HDMI KSV RAM
+DRAM:  1 GiB
+relocation Offset is: 105f8000
+NAND:  Amlogic nand flash uboot driver, Version U1.05.016 (c) 2010 Amlogic Inc.
+NAND device id: ec d5 84 72 50 42 
+====caculate nand writesize 0x2000 oobsize 0x1b4 erasesize 0x100000
+==========scan oob_size is 436
+#####aml_nand_init, with RB pins and chip->chip_delay:20
+bus_cycle=5, bus_timing=6, start_cycle=6, end_cycle=7,system=5.0ns
+======options_selected 0x9 options_define 0x3
+======aml_chip->oob_size is 1b4
+======bch_mode index 5
+define oob size: 436 could support bch mode: nand_key
+oob size is not enough for selected bch mode: NAND_BCH30_1K_MODE force bch to mode: NAND_BCH24_1K_MODE
+aml_chip->oob_fill_cnt =84,aml_chip->oob_size =436,bch_bytes =42
+multi plane error for selected plane mode: NAND_TWO_PLANE_MODE force plane to : NAND_SINGLE_PLANE_MODE
+aml_nand_init:oobmul =1,chip->ecc.layout->oobfree[0].length=16,aml_chip->oob_size=436
+########aml_nand_read_page_hwecc 3100 read ecc failed here at at page:0, blk:0 chip[0]
+1 NAND detect Bad block at 0 
+aml nand env valid addr: 110000 
+key start_blk=2040,end_blk=2047,aml_nand_key_init:627
+aml nand key valid addr: 7f800000 
+aml nand key valid addr: 7f900000 
+aml nand key valid addr: 7fa00000 
+aml nand key valid addr: 7fb00000 
+CONFIG_KEYSIZE=0x10000; KEYSIZE=0xfffc; bbt=0x1330; default_keyironment_size=0xeccc
+########aml_nand_read_page_hwecc 3100 read ecc failed here at at page:0, blk:0 chip[0]
+1 NAND detect Bad block at 0 
+ NAND bbt detect Bad block at 2900000 
+Creating 8 MTD partitions on "nandnormal":
+0x000000900000-0x000001100000 : "logo"
+0x000001100000-0x000001900000 : "aml_logo"
+0x000001900000-0x000002100000 : "recovery"
+0x000002100000-0x000002900000 : "boot"
+0x000002900000-0x000022900000 : "system"
+ NAND bbt detect Bad block at 2900000 
+0x000022900000-0x00002a900000 : "cache"
+0x00002a900000-0x00003a900000 : "backup"
+0x00003a900000-0x00007f800000 : "userdata"
+nandnormal initialized ok
+MMC:   SDIO Port B: 0
+SF: Detected MX25L3205D with page size 256, total 4 MiB
+
+SPI NOR Flash have write protect!!!
+In:    serial
+Out:   serial
+Err:   serial
+aml_i2c_init
+register usb cfg[0] = 9fe85e70
+Net:   Meson_Ethernet
+init suspend firmware done. (ret:0)
+reboot_mode=charging
+SARADC open channel(4).
+SARADC open channel(4).
+efuse version is not selected.
+Hit any key to stop autoboot:  0 
+Booting from nand ...
+
+NAND read: logo whole chip
+ 8388608 bytes read: OK
+wrong pack img!
+cp - memory copy
+
+Usage:
+cp [.b, .w, .l] source target count
+
+NAND read: boot offset 0x0, size 0x600000
+ 6291456 bytes read: OK
+pre-clear hdmi ram
+i=0,register --- nand_keyamlkeys=0
+name=nand_key nand_key
+read:addr:0x7f800000,phy_blk_addr:2040,phy_page_addr:0,aml_nand_get_key:125
+init key ok!!
+don't found keyname,uboot_key_read:1455
+prefetch hdcp keys from nand failed
+Wrong Image Format for bootm command
+ERROR: can't get kernel image!
+enter recovery
+
+NAND read: logo whole chip
+ 8388608 bytes read: OK
+wrong pack img!
+cp - memory copy
+
+Usage:
+cp [.b, .w, .l] source target count
+ sdio_detect return 1
+Device: SDIO Port B
+Manufacturer ID: 0
+OEM: 0
+Name: oTran Speed: 40000000
+Rd Block Len: 512
+SD version 2.0
+High Capacity: Yes
+Capacity: 3987734528
+Boot Part Size: 0
+Bus Width: 4-bit
+reading recovery.img
+
+5550080 bytes read
+## Booting kernel from Legacy Image at 82000000 ...
+   Image Name:   Linux-3.0.50
+   Image Type:   ARM Linux Kernel Image (lzma compressed)
+   Data Size:    4277173 Bytes = 4.1 MiB
+   Load Address: 80008000
+   Entry Point:  80008000
+   Verifying Checksum ... OK
+        Ramdisk start addr = 0x82415000, len = 0x135ad3
+   Uncompressing Kernel Image ... OK
+machid from environment: 0x4e27 
+EFUSE machid is not set.
+Using machid 0x4e27 from environment
+
+Starting kernel ...
+
+[    0.000000@0] Initializing cgroup subsys cpu
+[    0.000000@0] Linux version 3.0.50 (wuyl@wuyl-945GCM-S2C) (gcc version 4.4.1 (Sourcery G++ Lite 2010q1-188) ) #10 SMP PREEMPT Wed Apr 10 00:08:31 CST 2013
+[    0.000000@0] CPU: ARMv7 Processor [413fc090] revision 0 (ARMv7), cr=10c53c7d
+[    0.000000@0] CPU: VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000@0] Machine: Amlogic Meson6 g02 customer platform
+[    0.000000@0] Ignoring unrecognised tag 0x00000000
+[    0.000000@0] Memory policy: ECC disabled, Data cache writealloc
+[    0.000000@0] PERCPU: Embedded 7 pages/cpu @c14d2000 s5600 r8192 d14880 u32768
+[    0.000000@0] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 224256
+[    0.000000@0] Kernel command line: root=/dev/cardblksd2 rw rootfstype=ext3 rootwait init=/init console=ttyS0,115200n8 logo=osd1,0x84100000,720p,full androidboot.resolution=720p nohlt vmalloc=256m mem=1024m a9_clk_max=1512000000
+[    0.000000@0] osd1:1
+[    0.000000@0] 720p:6
+[    0.000000@0] full:2
+[    0.000000@0] PID hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000@0] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000@0] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000@0] Memory: 64MB 308MB 512MB = 884MB total
+[    0.000000@0] Memory: 883272k/883272k available, 21944k reserved, 524288K highmem
+[    0.000000@0] Virtual kernel memory layout:
+[    0.000000@0]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000@0]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000@0]     DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+[    0.000000@0]     vmalloc : 0xe0000000 - 0xf0000000   ( 256 MB)
+[    0.000000@0]     lowmem  : 0xc0000000 - 0xdff00000   ( 511 MB)
+[    0.000000@0]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000@0]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000@0]       .init : 0xc0008000 - 0xc023b000   (2252 kB)
+[    0.000000@0]       .text : 0xc023b000 - 0xc0ad0690   (8790 kB)
+[    0.000000@0]       .data : 0xc0ad2000 - 0xc0b2e800   ( 370 kB)
+[    0.000000@0]        .bss : 0xc0b2e824 - 0xc0cc8e78   (1642 kB)
+[    0.000000@0] SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.000000@0] Preemptible hierarchical RCU implementation.
+[    0.000000@0]        RCU debugfs-based tracing is enabled.
+[    0.000000@0] NR_IRQS:256
+[    0.000000@0] gic_init: irq_offset=0
+[    0.000000@0] sched_clock: 32 bits at 1000kHz, resolution 1000ns, wraps every 4294967ms
+[    0.000000@0] MESON TIMER-A c0ae6180
+[    0.000000@0] Disable timerA
+[    0.000000@0] Console: colour dummy device 80x30
+[    0.000000@0] console [ttyS0] enabled
+[    0.234126@0] Calibrating delay loop... 2387.14 BogoMIPS (lpj=11935744)
+[    0.290049@0] pid_max: default: 32768 minimum: 301
+[    0.292230@0] Mount-cache hash table entries: 512
+[    0.297442@0] Initializing cgroup subsys cpuacct
+[    0.301402@0] Initializing cgroup subsys freezer
+[    0.305988@0] CPU: Testing write buffer coherency: ok
+[    0.311160@0] MESON TIMER-B c0ae6240
+[    0.314529@0] Disable timerA
+[    0.317385@0] Disable timerB
+[    0.320254@0] Disable timerA
+[    0.323240@0] L310 cache controller enabled
+[    0.327281@0] l2x0: 8 ways, CACHE_ID 0x4100a0c8, AUX_CTRL 0x7e462c01, Cache size: 524288 B
+[    0.335576@0]  prefetch=0x31000006
+[    0.338910@0] ===actlr=0x41
+[    0.341695@0] ===actlr=0x4b
+[    0.344465@0] SCU_CTRL: scu_ctrl=0x69
+[    0.348111@0] pl310: aux=0x7e462c01, prefetch=0x31000006
+[    0.451452@1] CPU1: Booted secondary processor
+[    0.511186@1] MESON TIMER-D c0ae63c0
+[    0.511218@0] Brought up 2 CPUs
+[    0.511225@0] SMP: Total of 2 processors activated (4780.85 BogoMIPS).
+[    0.523183@1] Disable timerD
+[    0.526184@0] devtmpfs: initialized
+[    0.533335@0] clkrate [ xtal ] : 24000000
+[    0.533510@0] clkrate [ pll_sys ] : 1200000000
+[    0.537936@0] clkrate [ pll_fixed ] : 2000000000
+[    0.542553@0] clkrate [ pll_vid2 ] : 378000000
+[    0.546962@0] clkrate [ pll_hpll ] : 378000000
+[    0.551463@0] clkrate [ pll_ddr ] : 516000000
+[    0.555730@0] clkrate [ a9_clk ] : 1200000000
+[    0.560134@0] clkrate [ clk81 ] : 200000000
+[    0.564339@0] clkrate [ usb0 ] : 0
+[    0.567717@0] clkrate [ usb1 ] : 0
+[    0.572023@0] print_constraints: dummy: 
+[    0.575050@0] NET: Registered protocol family 16
+[    0.580435@0] ***vcck: vcck_pwm_initregister lm device 0
+[    0.584910@0] register lm device 1
+[    0.591036@0] usb_wifi_power Off
+[    0.591553@0] chip version=ffffffff
+[    0.594976@0] tv_init_module
+[    0.597744@0] major number 254 for disp
+[    0.601655@0] vout_register_server
+[    0.605031@0] register tv module server ok 
+[    0.609387@0] /opt/android/amlogic/common/drivers/amlogic/i2c/aml_i2c.c : aml_i2c_init
+[    0.617215@0] /opt/android/amlogic/common/drivers/amlogic/i2c/aml_i2c.c : aml_i2c_probe
+[    0.625181@0] master_no = 0, resource = c0b25324, maseter_regs=f1108500
+[    0.631916@0] aml-i2c aml-i2c.0: add adapter aml_i2c_adap0(df811828)
+[    0.638103@0] aml-i2c aml-i2c.0: aml i2c bus driver.
+[    0.643152@0] /opt/android/amlogic/common/drivers/amlogic/i2c/aml_i2c.c : aml_i2c_probe
+[    0.651036@0] master_no = 1, resource = c0b2537c, maseter_regs=f11087c0
+[    0.657746@0] aml-i2c aml-i2c.1: add adapter aml_i2c_adap1(df812028)
+[    0.663978@0] aml-i2c aml-i2c.1: aml i2c bus driver.
+[    0.669006@0] /opt/android/amlogic/common/drivers/amlogic/i2c/aml_i2c.c : aml_i2c_probe
+[    0.676912@0] master_no = 2, resource = c0b253d4, maseter_regs=f3100500
+[    0.683603@0] aml-i2c aml-i2c.2: add adapter aml_i2c_adap2(df812828)
+[    0.689835@0] aml-i2c aml-i2c.2: aml i2c bus driver.
+[    0.694955@0] HDMI DEBUG: amhdmitx_init [1717]
+[    0.699224@0] HDMI DEBUG: amhdmitx_probe [1528]
+[    0.704024@1] Set HDMI:Chip C
+[    0.706675@1] HDMI DEBUG: HDMITX_M1B_Init [3360]
+[    0.711308@1] HDMI DEBUG: HDMITX_M1B_Init [3363]
+[    0.711312@0] HDMI: get hdmi platform data
+[    0.711317@0] HDMI 5V Power On
+[    0.723022@1] HDMI DEBUG: hdmi_hw_init [1214]
+[    0.727344@1] HDMI: get brd phy data
+[    0.730890@1] hdmi phy setting
+[    0.734026@1] HDMI: get brd phy data
+[    0.737488@1] hdmi phy setting
+[    0.740584@1] CEC not init
+[    0.743991@1] HDMI: reset intr mask
+[    0.758364@0] bio: create slab <bio-0> at 0
+[    0.759174@0] SCSI subsystem initialized
+[    0.761027@0] usbcore: registered new interface driver usbfs
+[    0.766672@0] usbcore: registered new interface driver hub
+[    0.771342@1] HDMI DEBUG: hdmi_task_handle [1212]
+[    0.776945@0] usbcore: registered new device driver usb
+[    0.782517@0] [0x1b7e] = 0xff
+[    0.784767@0] [0x105f] = 0x0
+[    0.787631@0] [0x109d] = 0x814d3928
+[    0.791104@0] [0x109e] = 0x6b425012
+[    0.794587@0] [0x109f] = 0x110
+[    0.797614@0] [0x109c] = 0x1043e
+[    0.800825@0] [0x1066] = 0x10843
+[    0.804048@0] [0x1059] = 0x100
+[    0.807075@0] [0x105f] = 0x80000
+[    0.810286@0] [0x105f] = 0x88001
+[    0.813505@0] [0x105f] = 0x80003
+[    0.816710@0] [0x104a] = 0x101
+[    0.819747@0] [0x107f] = 0x8c0000c3
+[    0.823226@0] [0x1bb8] = 0x52
+[    0.826171@0] [0x1b62] = 0x2029
+[    0.829296@0] [0x1b8d] = 0x4040
+[    0.832426@0] [0x1b8e] = 0x19
+[    0.835372@0] [0x1b94] = 0x288
+[    0.838409@0] [0x1b95] = 0xc87
+[    0.841453@0] [0x1b97] = 0xce3
+[    0.844485@0] [0x1b98] = 0x50
+[    0.847437@0] [0x1b99] = 0xf0
+[    0.850388@0] [0x1b9a] = 0x50
+[    0.853345@0] [0x1b9b] = 0x2b0
+[    0.856377@0] [0x1b9c] = 0xcb0
+[    0.859415@0] [0x1b9d] = 0x4
+[    0.862288@0] [0x1b9e] = 0x8
+[    0.865144@0] [0x1ba1] = 0x4
+[    0.868008@0] [0x1ba2] = 0x8
+[    0.870873@0] [0x1ba4] = 0x288
+[    0.873917@0] [0x1ba3] = 0xc87
+[    0.876949@0] [0x1ba6] = 0x1d
+[    0.879900@0] [0x1baf] = 0x2ec
+[    0.882943@0] [0x1ba7] = 0x100
+[    0.885976@0] [0x1ba8] = 0xa8
+[    0.888927@0] [0x1ba9] = 0xa8
+[    0.891883@0] [0x1baa] = 0x100
+[    0.894916@0] [0x1bab] = 0x0
+[    0.897781@0] [0x1bac] = 0x5
+[    0.900645@0] [0x1bae] = 0x2ed
+[    0.903688@0] [0x1b68] = 0x100
+[    0.906721@0] [0x1b60] = 0x0
+[    0.909585@0] [0x1b6e] = 0x200
+[    0.912628@0] [0x1b58] = 0x0
+[    0.915488@0] [0x1b7e] = 0x0
+[    0.918352@0] [0x1b64] = 0x9061
+[    0.921486@0] [0x1b65] = 0xa061
+[    0.924602@0] [0x1b66] = 0xb061
+[    0.927726@0] [0x1b78] = 0x1
+[    0.930591@0] [0x1b79] = 0x1
+[    0.933461@0] [0x1b7a] = 0x1
+[    0.936320@0] [0x1b7b] = 0x1
+[    0.939184@0] [0x1b7c] = 0x1
+[    0.942054@0] [0x1b7d] = 0x1
+[    0.944913@0] [0x271a] = 0xa
+[    0.947777@0] [0x1bfc] = 0x1000
+[    0.950902@0] [0x1c0d] = 0x3102
+[    0.954032@0] [0x1c0e] = 0x54
+[    0.956978@0] [0x1b80] = 0x1
+[    0.959842@0] [0x1b57] = 0x0
+[    0.962713@0] tvoutc_setmode[267]
+[    0.966006@0] mode is: 6
+[    0.968525@0] VPU_VIU_VENC_MUX_CTRL: 0xa
+[    0.972433@0] viu chan = 1
+[    0.975119@0] VPU_VIU_VENC_MUX_CTRL: 0xa
+[    0.982300@0] print_constraints: vcck: 1010 <--> 1210 mV at 1380 mV 
+[    0.985806@0] Advanced Linux Sound Architecture Driver Version 1.0.24.
+[    0.992809@0] cfg80211: Calling CRDA to update world regulatory domain
+[    0.998909@0] Switching to clocksource Timer-E
+[    1.011204@0] Switched to NOHz mode on CPU #0
+[    1.011212@1] Switched to NOHz mode on CPU #1
+[    1.016328@1] NET: Registered protocol family 2
+[    1.018878@1] IP route cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    1.026363@1] TCP established hash table entries: 65536 (order: 7, 524288 bytes)
+[    1.034071@1] TCP bind hash table entries: 65536 (order: 7, 786432 bytes)
+[    1.040833@1] TCP: Hash tables configured (established 65536 bind 65536)
+[    1.046849@1] TCP reno registered
+[    1.050124@1] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    1.056153@1] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    1.062738@1] NET: Registered protocol family 1
+[    1.076540@1] Unpacking initramfs...
+[    1.125771@1] Freeing initrd memory: 1236K
+[    1.126891@1] highmem bounce pool size: 64 pages
+[    1.129094@1] ashmem: initialized
+[    1.142754@1] NTFS driver 2.1.30 [Flags: R/O].
+[    1.143219@1] fuse init (API version 7.16)
+[    1.146222@1] msgmni has been set to 703
+[    1.150425@1] io scheduler noop registered
+[    1.153732@1] io scheduler deadline registered (default)
+[    1.312561@1] loop: module loaded
+[    1.314774@1] PPP generic driver version 2.4.2
+[    1.315249@1] PPP Deflate Compression module registered
+[    1.319873@1] PPP BSD Compression module registered
+[    1.325122@1] PPP MPPE Compression module registered
+[    1.329683@1] NET: Registered protocol family 24
+[    1.334333@1] tun: Universal TUN/TAP device driver, 1.6
+[    1.339490@1] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    1.346408@1] usbcore: registered new interface driver asix
+[    1.351477@1] usbcore: registered new interface driver cdc_ether
+[    1.357532@1] usbcore: registered new interface driver net1080
+[    1.363298@1] usbcore: registered new interface driver cdc_subset
+[    1.369363@1] usbcore: registered new interface driver zaurus
+[    1.375015@1] cdc_ncm: 04-Aug-2011
+[    1.378476@1] usbcore: registered new interface driver cdc_ncm
+[    1.384297@1] usbcore: registered new interface driver qf9700
+[    1.390012@1] usbcore: registered new interface driver sr9600
+[    1.396022@1] usbcore: registered new interface driver cdc_acm
+[    1.401465@1] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    1.409635@1] Initializing USB Mass Storage driver...
+[    1.414776@1] usbcore: registered new interface driver usb-storage
+[    1.420821@1] USB Mass Storage support registered.
+[    1.425810@1] usbcore: registered new interface driver usbserial
+[    1.431585@1] usbserial: USB Serial Driver core
+[    1.436198@1] USB Serial support registered for GSM modem (1-port)
+[    1.442357@1] usbcore: registered new interface driver option
+[    1.447999@1] option: v0.7.2:USB Driver for GSM modems
+[    1.453850@1] mousedev: PS/2 mouse device common for all mice
+[    1.460013@1] usbcore: registered new interface driver iforce
+[    1.465646@1] usbcore: registered new interface driver xpad
+[    1.470805@1] i2c /dev entries driver
+[    1.474928@1] lirc_dev: IR Remote Control driver registered, major 250 
+[    1.480367@1] IR NEC protocol handler initialized
+[    1.485070@1] IR RC5(x) protocol handler initialized
+[    1.490001@1] IR RC6 protocol handler initialized
+[    1.494697@1] IR JVC protocol handler initialized
+[    1.499376@1] IR Sony protocol handler initialized
+[    1.504158@1] IR RC5 (streamzap) protocol handler initialized
+[    1.509878@1] IR LIRC bridge handler initialized
+[    1.514486@1] Linux video capture interface: v2.00
+[    1.519497@1] usbcore: registered new interface driver uvcvideo
+[    1.525164@1] USB Video Class driver (v1.1.0)
+[    1.530252@1] device-mapper: uevent: version 1.0.3
+[    1.534928@1] device-mapper: ioctl: 4.20.0-ioctl (2011-02-02) initialised: dm-devel@redhat.com
+[    1.543133@1] cpuidle: using governor ladder
+[    1.547116@1] cpuidle: using governor menu
+[    1.551526@1] usbcore: registered new interface driver usbhid
+[    1.556937@1] usbhid: USB HID core driver
+[    1.561647@1] logger: created 256K log 'log_main'
+[    1.565874@1] logger: created 256K log 'log_events'
+[    1.570687@1] logger: created 256K log 'log_radio'
+[    1.575496@1] logger: created 256K log 'log_system'
+[    1.580206@1] vout_init_module
+[    1.583186@1] start init vout module 
+[    1.586966@1] create  vout attribute ok 
+[    1.590969@1] ge2d_init
+[    1.593314@1] ge2d_dev major:249
+[    1.597026@1] ge2d start monitor
+[    1.599935@1] osd_init
+[    1.602289@1] [0x1b7e] = 0xff
+[    1.605199@1] [0x105f] = 0x0
+[    1.608049@1] [0x109d] = 0x814d3928
+[    1.611521@1] [0x109e] = 0x6b425012
+[    1.615002@1] [0x109f] = 0x110
+[    1.618031@1] [0x109c] = 0x1043e
+[    1.621242@1] [0x1066] = 0x10843
+[    1.622856@0] ge2d workqueue monitor start
+[    1.628629@1] [0x1059] = 0x100
+[    1.631658@1] [0x105f] = 0x80000
+[    1.634879@1] [0x105f] = 0x88001
+[    1.638082@1] [0x105f] = 0x80003
+[    1.641293@1] [0x104a] = 0x101
+[    1.644338@1] [0x107f] = 0x8c0000c3
+[    1.647803@1] [0x1bb8] = 0x52
+[    1.650754@1] [0x1b62] = 0x2029
+[    1.653886@1] [0x1b8d] = 0x4040
+[    1.657004@1] [0x1b8e] = 0x19
+[    1.659955@1] [0x1b94] = 0x288
+[    1.663000@1] [0x1b95] = 0xc87
+[    1.666031@1] [0x1b97] = 0xce3
+[    1.669069@1] [0x1b98] = 0x50
+[    1.672020@1] [0x1b99] = 0xf0
+[    1.674978@1] [0x1b9a] = 0x50
+[    1.677923@1] [0x1b9b] = 0x2b0
+[    1.680961@1] [0x1b9c] = 0xcb0
+[    1.684007@1] [0x1b9d] = 0x4
+[    1.686863@1] [0x1b9e] = 0x8
+[    1.689727@1] [0x1ba1] = 0x4
+[    1.692592@1] [0x1ba2] = 0x8
+[    1.695464@1] [0x1ba4] = 0x288
+[    1.698494@1] [0x1ba3] = 0xc87
+[    1.701532@1] [0x1ba6] = 0x1d
+[    1.704491@1] [0x1baf] = 0x2ec
+[    1.707522@1] [0x1ba7] = 0x100
+[    1.710559@1] [0x1ba8] = 0xa8
+[    1.713518@1] [0x1ba9] = 0xa8
+[    1.716462@1] [0x1baa] = 0x100
+[    1.719500@1] [0x1bab] = 0x0
+[    1.722364@1] [0x1bac] = 0x5
+[    1.725238@1] [0x1bae] = 0x2ed
+[    1.728267@1] [0x1b68] = 0x100
+[    1.731305@1] [0x1b60] = 0x0
+[    1.734177@1] [0x1b6e] = 0x200
+[    1.737207@1] [0x1b58] = 0x0
+[    1.740071@1] [0x1b7e] = 0x0
+[    1.742943@1] [0x1b64] = 0x9061
+[    1.746061@1] [0x1b65] = 0xa061
+[    1.749185@1] [0x1b66] = 0xb061
+[    1.752310@1] [0x1b78] = 0x1
+[    1.755182@1] [0x1b79] = 0x1
+[    1.758039@1] [0x1b7a] = 0x1
+[    1.760904@1] [0x1b7b] = 0x1
+[    1.763775@1] [0x1b7c] = 0x1
+[    1.766632@1] [0x1b7d] = 0x1
+[    1.769497@1] [0x271a] = 0xa
+[    1.772361@1] [0x1bfc] = 0x1000
+[    1.775496@1] [0x1c0d] = 0x3102
+[    1.778611@1] [0x1c0e] = 0x54
+[    1.781562@1] [0x1b80] = 0x1
+[    1.784434@1] [0x1b57] = 0x0
+[    1.787292@1] tvoutc_setmode[267]
+[    1.790589@1] mode is: 6
+[    1.793120@1] VPU_VIU_VENC_MUX_CTRL: 0xa
+[    1.797012@1] viu chan = 1
+[    1.799703@1] VPU_VIU_VENC_MUX_CTRL: 0xa
+[    1.803649@1] request_fiq:152: fiq=35
+[    1.807260@1] request_fiq:186: end
+[    1.810642@1] [osd0] 0x84100000-0x850fffff
+[    1.814974@1] Frame buffer memory assigned at phy:0x84100000, vir:0xe1000000, size=16384K
+[    1.822892@1] ---------------clear framebuffer0 memory  
+[    1.851657@0] [osd1] 0x85100000-0x851fffff
+[    1.851708@0] Frame buffer memory assigned at phy:0x85100000, vir:0xe0200000, size=1024K
+[    1.858197@0] ---------------clear framebuffer1 memory  
+[    1.884860@0] osd probe ok  
+[    1.891929@0]  set pinmux c0b25760
+[    2.002940@0] UART_ttyS0:(irq = 122)
+[    2.003100@0] dwc_otg: version 2.94a 05-DEC-2012
+[    2.505428@0] USB (0) use clock source: XTAL input
+[    2.706455@0] Core Release: 2.94a
+[    2.706479@0] Setting default values for core params
+[    3.109107@0] Using Buffer DMA mode
+[    3.109131@0] OTG VER PARAM: 1, OTG VER FLAG: 1
+[    3.111462@0] Working on port type = OTG
+[    3.115389@0] Current port type: SLAVE
+[    3.119164@0] dwc_otg lm0: DWC OTG Controller
+[    3.123556@0] dwc_otg lm0: new USB bus registered, assigned bus number 1
+[    3.130144@0] dwc_otg lm0: irq 62, io mem 0x00000000
+[    3.135928@1] hub 1-0:1.0: USB hub found
+[    3.138986@1] hub 1-0:1.0: 1 port detected
+[    3.143390@1] Dedicated Tx FIFOs mode
+[    3.146835@1] using timer detect id change, df80a400
+[    3.351581@1] Core Release: 2.94a
+[    3.351603@1] Setting default values for core params
+[    3.753687@1] Using Buffer DMA mode
+[    3.753710@1] OTG VER PARAM: 1, OTG VER FLAG: 1
+[    3.756046@1] Working on port type = HOST
+[    3.760086@1] dwc_otg lm1: DWC OTG Controller
+[    3.764416@1] dwc_otg lm1: new USB bus registered, assigned bus number 2
+[    3.771080@1] dwc_otg lm1: irq 63, io mem 0x00000000
+[    3.779069@1] Init: Port Power? op_state=1
+[    3.780089@1] Init: Power Port (0)
+[    3.784256@1] hub 2-0:1.0: USB hub found
+[    3.787389@1] hub 2-0:1.0: 1 port detected
+[    3.791884@1] Amlogic nand flash Kernel driver, Version K1.05.012 (c) 2010 Amlogic Inc.
+[    3.799460@1] ####Version of Uboot must be newer than U1.05.011!!!!! 
+[    3.805921@1] 1
+[    3.807607@1] chip->controller=c0c9b438
+[    3.811436@1] init bus_cycle=17, bus_timing=10, start_cycle=10, end_cycle=10,system=5.0ns
+[    3.820021@1] No NAND device found.
+[    3.823305@1] NAND device id: ec d5 84 72 50 42 
+[    3.827665@1] NAND device: Manufacturer ID: 0xec, Chip ID: 0xec (Samsung 6 Generation NAND 2GiB K9GAG08U0E)
+[    3.837506@1] #####aml_nand_init, with RB pins and chip->chip_delay:20
+[    3.843900@1] bus_cycle=6, bus_timing=7, start_cycle=7, end_cycle=7,system=5.0ns
+[    3.851269@1] oob size is not enough for selected bch mode: NAND_BCH30_1K_MODE force bch to mode: NAND_BCH24_1K_MODE
+[    3.861781@1] aml_chip->oob_fill_cnt =84,aml_chip->oob_size =436,bch_bytes =42
+[    3.868981@1] multi plane error for selected plane mode: NAND_TWO_PLANE_MODE force plane to : NAND_SINGLE_PLANE_MODE
+[    3.879486@1]  oob layout use nand base oob layout oobsize = 16,oobmul =1,mtd->oobsize =436,aml_chip->oob_size =436
+[    3.890492@1] ########aml_nand_read_page_hwecc 2835 read ecc failed here at at page:0, blk:0 chip[0]
+[    3.899021@1]  NAND detect Bad block at 0 
+[    3.920708@1] aml nand env valid addr: 110000 
+[    3.953456@1] nand env: nand_env_probe. 
+[    3.954110@1] nand key: nand_key_probe. 
+[    3.955658@1] key start_blk=2040,end_blk=2047,aml_nand_key_init:595
+[    3.970503@1] aml nand key valid addr: 7f800000 
+[    3.970529@1] aml nand key valid addr: 7f900000 
+[    3.974078@1] aml nand key valid addr: 7fa00000 
+[    3.978670@1] aml nand key valid addr: 7fb00000 
+[    3.983334@1] Indeed it is in host mode hprt0 = 00021501
+[    3.992898@1] i=0,register --- nand_keyamlkeys=0
+[    3.993772@1] ########aml_nand_read_page_hwecc 2835 read ecc failed here at at page:0, blk:0 chip[0]
+[    4.002290@1]  NAND detect Bad block at 0 
+[    4.019015@0]  NAND bbt detect Bad block at 2900000 
+[    4.019108@0] Creating 8 MTD partitions on "6 Generation NAND 2GiB K9GAG08U0E":
+[    4.025665@0] 0x000000900000-0x000001100000 : "logo"
+[    4.031851@0] 0x000001100000-0x000001900000 : "aml_logo"
+[    4.039084@0] 0x000001900000-0x000002100000 : "recovery"
+[    4.042154@0] 0x000002100000-0x000002900000 : "boot"
+[    4.049282@0] 0x000002900000-0x000022900000 : "system"
+[    4.051220@0]  NAND bbt detect Bad block at 2900000 
+[    4.057379@0] 0x000022900000-0x00002a900000 : "cache"
+[    4.063424@0] 0x00002a900000-0x00003a900000 : "backup"
+[    4.067465@0] 0x00003a900000-0x00007f800000 : "userdata"
+[    4.073044@0] ethernetinit(dbg[c0b17bb4]=2)
+[    4.075792@0] ethernet base addr is f3610000
+[    4.080031@0] set_phy_mode() phy_Identifier: 0x0
+[    4.084824@0] ethernet: MII PHY 0007c0f1h found at address 1, status 0x7829 advertising 01e1.
+[    4.093222@0] find phy phy_Identifier=7c0f1
+[    4.097300@0] *****WARNING: Haven't setup MAC address! Using random MAC address.
+[    4.104712@0] mac-addr: 0:42:43:aa:90:29
+[    4.108584@0] write mac add to:dfac2248: 00 42 43 aa 90 29 |.BC..)|
+[    4.115245@0] eth0: mixed no checksumming and other settings.
+[    4.120912@0] Amlogic A/V streaming port init
+[    4.125080@1] hub 2-0:1.0: unable to enumerate USB device on port 1
+[    4.134113@0] regist mpeg12 codec profile
+[    4.135233@0] regist mpeg4 codec profile
+[    4.139041@0] amvdec_vc1 module init
+[    4.142690@0] regist vc1 codec profile
+[    4.146523@0] amvdec_h264 module init
+[    4.150093@0] regist h264 codec profile
+[    4.153848@0] amvdec_h264mvc module init
+[    4.157906@0] regist mjpeg codec profile
+[    4.161602@0] amvdec_real module init
+[    4.165404@0] regist real codec profile
+[    4.169947@0] request_fiq:152: fiq=35
+[    4.172711@0] request_fiq:186: end
+[    4.176576@0] SARADC Driver init.
+[    4.179638@0] Remote Driver
+[    4.182539@0] input: aml_keypad as /devices/platform/meson-remote/input/input0
+[    4.190108@0] meson_remote_pinmux_setup()
+[    4.193412@0] Remote platform_data g_remote_base=f3100480
+[    4.198745@0] Remote date_valye======0,status == 8915c80
+[    4.204114@0] remote config major:245
+[    4.208200@0] physical address:0x9f982000
+[    4.211865@0] ADC Keypad Driver init.
+[    4.215507@0] chan #4 used for ADC key
+[    4.219138@0] ok key(232) registed.
+[    4.222609@0] home key(102) registed.
+[    4.226312@0] back key(158) registed.
+[    4.229898@0] vol+ key(115) registed.
+[    4.233635@0] vol- key(114) registed.
+[    4.237188@0] menu key(139) registed.
+[    4.241026@0] input: adc_keypad as /devices/platform/m1-adckp.0/input/input1
+[    4.248270@0] adc keypad register input device completed.
+[    4.253381@0] adc keypad major:244
+[    4.257290@0] Meson KeyInput init
+[    4.260150@0] Key 116 registed.
+[    4.263473@0] input: key_input as /devices/platform/meson-keyinput.0/input/input2
+[    4.271004@0] Meson KeyInput register RTC interrupt
+[    4.275481@0] Meson KeyInput major=243
+[    4.280162@0] spi_nor apollospi:0: mx25l3205d (4096 Kbytes)
+[    4.284906@0] Creating 2 MTD partitions on "apollospi:0":
+[    4.290219@0] 0x000000000000-0x000000060000 : "bootloader"
+[    4.296881@0] 0x000000080000-0x000000088000 : "ubootenv"
+[    4.302506@0] Memory Card media Major: 253
+[    4.305334@0] card max_req_size is 128K 
+[    4.309609@0] card creat process sucessful
+[    4.313349@0] [dsp]DSP start addr 0xc4000000
+[    4.317316@0] [dsp]register dsp to char divece(232)
+[    4.326353@0] DSP pcmenc stream buffer to [0x9e401000-0x9e601000]
+[    4.328219@0] amlogic audio dsp pcmenc device init!
+[    4.333724@0] amlogic audio spdif interface device init!
+[    4.339414@0] using rtc device, aml_rtc, for alarms
+[    4.343252@0] aml_rtc aml_rtc: rtc core: registered aml_rtc as rtc0
+[    4.350260@0] amvdec_656in module init
+[    4.353506@0] efuse===========================================
+[    4.359510@0] efuse: device efuse created
+[    4.363167@0] efuse--------------------------------------------
+[    4.368972@0] keys===========================================
+[    4.374801@0] keys_devno=ee00000
+[    4.378317@0] efuse: device aml_keys created
+[    4.382119@0] amlkeys=0
+[    4.384675@0] platform_driver_register--aml_keys_driver--------------------
+[    4.392568@0] aml_dvb_init 
+[    4.394371@0] dvb_io_setup start
+[    4.397475@0] DVB: registering new adapter (amlogic-dvb)
+[    4.406405@0] DVB: async fifo 0 buf size 524288, flush size 262144
+[    4.408944@0] DVB: async fifo 1 buf size 524288, flush size 262144
+[    4.415540@0] init avl6211 frontend 0
+[    4.418736@0] DVB: cannot get resource "frontend0_LNBON/OFF"
+[    4.4?FS?a?©¢ä≈∂Û·ê¶·ê^f›µŒ’ÄÑV˝Æóπ‰zAOUîı9ΩOFéF≥@@@@l
